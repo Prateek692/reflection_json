@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package json_reflection;
+
+service JsonReflectionService {
+    rpc GetJsonField (JsonFieldRequest) returns (JsonFieldResponse) {}
+    rpc ListFields (Empty) returns (FieldList) {}
+    rpc ModifyField (FieldModification) returns (OperationStatus) {}
+}
+
+message JsonFieldRequest {
+    string field_path = 1;
+}
+
+message JsonFieldResponse {
+    string value = 1;
+}
+
+message FieldList {
+    repeated string fields = 1;
+}
+
+message FieldModification {
+    string field_path = 1;
+    string new_value = 2;
+}
+
+message OperationStatus {
+    bool success = 1;
+    string message = 2;
+}
+
+message Empty {}
