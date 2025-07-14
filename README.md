@@ -6,6 +6,8 @@ libprotobuf-dev
 protobuf-c-compiler
 libgrpc++-dev
 grpc-protoc-plugin
+nlohmann-json3-dev
+protobuf-compiler-grpc
 
 - make python 3.10 .venv with requirements.txt
 - make .py files from .proto using : python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. echo.proto
